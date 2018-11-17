@@ -3,6 +3,8 @@ import { Recipe } from 'app/shared/models/recipe';
 import { Recipes } from 'app/shared/mocks/recipes';
 import { RecipeProvider } from "app/shared/providers/recipe.provider";
 import {environment} from "app/shared/environments/environment";
+import {NavController} from "ionic-angular";
+import {RecipeDetail} from "app/pages/recipe-detail/recipe-detail";
 
 @Component({
   selector: 'page-home',
@@ -13,7 +15,10 @@ export class HomePage {
   private recipes: Array<Recipe>;
   private resourcesUrl: string;
 
-  constructor(private recipesProvider: RecipeProvider) {
+  constructor(
+    private recipesProvider: RecipeProvider,
+    private navCtrl: NavController
+  ) {
     this.recipes = Recipes;
     this.resourcesUrl = environment.resourcesUrl;
   }
@@ -23,7 +28,7 @@ export class HomePage {
   }
 
   openRecipe(recipe: Recipe) {
-    console.log('recipe clicked:', recipe);
+    this.navCtrl.push(RecipeDetail, { recipe: recipe });
   }
 
   private getRecipes() {

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar class="home-navbar">
+    <ion-title><h1>{{ 'Recepta' | translate }}</h1></ion-title>
+    <ion-buttons start>
+      <button><img class="nav-icon" src="assets/imgs/logo.png"></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid style="padding: 0">
+    <ion-row>
+      <ion-col>
+        <ion-row class="recipe-title"><h2>{{ recipe.title | translate }}</h2></ion-row>
+        <ion-row>
+          <div *ngIf="recipe.image" [ngStyle]="{'background-image': 'url(' + resourcesUrl + recipe.image.filename + ')'}"></div>
+          <div class="recipe-detail-image" *ngIf="!recipe.image" [ngStyle]="{'background-image': 'url(assets/imgs/placeholder-image.jpg)'}"></div>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row class="recipe-ingredients">
+      <ion-col>
+        <ion-row class="ingredients-title">{{ 'Ingredients: ' | translate }}</ion-row>
+        <ul>
+          <li class="bullet" *ngFor="let ingredient of recipe.ingredients">{{ ingredient | translate }}</li>
+        </ul>
+      </ion-col>
+    </ion-row>
+    <ion-row class="recipe-description" *ngFor="let desc of description">
+      <ion-col>
+        <ion-row class="description-title">{{ 'Pas ' | translate }} {{ description.indexOf(desc) + 1}}:</ion-row>
+        <ion-row class="description-msg">>{{ desc | translate }}</ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,53 @@
+.home-navbar .toolbar-background {
+  background-color:color($colors, primary);
+}
+
+.recipe-detail-image {
+  margin: 2rem auto;
+  height: 25rem;
+  width: 30rem;
+  background-size: cover;
+}
+
+.vertical-align-content > * {
+  display: flex !important;
+  align-content: center !important;
+  align-items: center !important;
+}
+
+.recipe-title {
+  display: block;
+  text-align: center;
+  font-size: 3rem;
+}
+
+.ingredients-title {
+  color: color($colors, light);
+  font-size: 2.5rem;
+  margin: 2rem 2rem 0 2rem;
+}
+
+.recipe-ingredients {
+  margin: .5rem 0;
+  background-color: color($colors, primary);
+  ul {
+    list-style-type: square;
+    list-style-image: url('assets/imgs/bullet.jpg');
+  }
+}
+
+.recipe-description {
+  background-color: color($colors, secondary);
+  margin-bottom: .5rem;
+}
+
+.description-title {
+  color: color($colors, light);
+  font-size: 2.5rem;
+  margin: 1rem 2rem;
+}
+
+.description-msg {
+  font-size: 2rem;
+  margin: 1rem 2rem;
+}

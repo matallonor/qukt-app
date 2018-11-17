@@ -1,11 +1,9 @@
 <ion-header>
   <ion-navbar class="home-navbar">
     <ion-title><h1>{{ 'Receptes' | translate }}</h1></ion-title>
-
     <ion-buttons start>
-      <button><img class="nav-icon" src="assets/imgs/close-icon.svg"></button>
+      <button><img class="nav-icon" src="assets/imgs/logo.png"></button>
     </ion-buttons>
-
   </ion-navbar>
 </ion-header>
 
@@ -19,7 +17,7 @@
             <div class="image" *ngIf="!recipe.image" [ngStyle]="{'background-image': 'url(assets/imgs/placeholder-image.jpg)'}"></div>
           </ion-col>
           <ion-col col-9 class="vertical-align-content">
-            <p>{{ recipe.title | translate }}</p>
+            <p class="home-recipes-title">{{ recipe.title | translate }}</p>
           </ion-col>
         </ion-row>
       </ion-grid>

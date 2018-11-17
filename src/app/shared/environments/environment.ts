@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000',
-  resourcesUrl: 'http://localhost:3000/public/resources/',
+  apiUrl: 'http://localhost:8080/',
+  resourcesUrl: 'http://localhost:8080/public/resources/',
 };
