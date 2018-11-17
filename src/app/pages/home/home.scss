@@ -1,8 +1,52 @@
 .home-navbar .toolbar-background {
-  background-color:color($colors, secondary);
+  background-color:color($colors, primary);
 }
 
-.card-title, .card-date{
-  padding: 0;
-  margin: 0;
+ion-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 5rem .1rem;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+ion-card {
+  width: 100% !important;
+  margin: 0 !important;
+  box-shadow: none;
+  border-bottom: .3rem solid #ad4a47;
+}
+
+ion-card-content {
+  padding: 0 !important;
+}
+
+.image {
+  margin: 0 .5rem;
+  height: 6rem;
+  width: 8rem;
+  background-size: contain;
+}
+
+.vertical-align-content > * {
+  display: flex !important;
+  align-content: center !important;
+  align-items: center !important;
+}
+
+p {
+  font-size: 2.3rem !important;
+  padding: 0 2rem!important;
+  overflow: hidden!important;
+  text-overflow: ellipsis!important;
+  line-height: 2.3rem!important;
+  max-height: 6rem!important;
+  max-lines: 2 !important;
+  display: block!important;
+  display: -webkit-box!important;
+  height: 6rem!important;
+  -webkit-line-clamp: 2!important;
+  -webkit-box-orient: vertical!important;
 }

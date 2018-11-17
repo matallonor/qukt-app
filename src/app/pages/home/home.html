@@ -1,18 +1,28 @@
 <ion-header>
   <ion-navbar class="home-navbar">
-    <ion-title>Qukt</ion-title>
+    <ion-title><h1>{{ 'Receptes' | translate }}</h1></ion-title>
+
+    <ion-buttons start>
+      <button><img class="nav-icon" src="assets/imgs/close-icon.svg"></button>
+    </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-card *ngFor="let recipe of recipes" (click)="openRecipe(recipe)">
-    <ion-card-header>
-      <h2 class="d-inline pull-left card-title">{{recipe.title}}</h2>
-    </ion-card-header>
-    
-    <img [src]="recipe.imagePath">
     <ion-card-content>
-      <p>{{recipe.description}}</p>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-3>
+            <div *ngIf="recipe.image" [ngStyle]="{'background-image': 'url(' + resourcesUrl + recipe.image.filename + ')'}"></div>
+            <div class="image" *ngIf="!recipe.image" [ngStyle]="{'background-image': 'url(assets/imgs/placeholder-image.jpg)'}"></div>
+          </ion-col>
+          <ion-col col-9 class="vertical-align-content">
+            <p>{{ recipe.title | translate }}</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card-content>
   </ion-card>
 </ion-content>

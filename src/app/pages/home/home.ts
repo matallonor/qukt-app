@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
 import { Recipe } from 'app/shared/models/recipe';
 import { Recipes } from 'app/shared/mocks/recipes';
 import { RecipeProvider } from "app/shared/providers/recipe.provider";
+import {environment} from "app/shared/environments/environment";
 
 @Component({
   selector: 'page-home',
@@ -10,10 +10,12 @@ import { RecipeProvider } from "app/shared/providers/recipe.provider";
 })
 export class HomePage {
 
-  recipes: Array<Recipe>;
+  private recipes: Array<Recipe>;
+  private resourcesUrl: string;
 
   constructor(private recipesProvider: RecipeProvider) {
     this.recipes = Recipes;
+    this.resourcesUrl = environment.resourcesUrl;
   }
 
   ionViewDidLoad() {

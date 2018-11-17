@@ -1,4 +1,5 @@
 import {Serializable} from "app/shared/models/serializable";
+import {Resource} from "app/shared/models/resource";
 
 export class Recipe extends Serializable {
   _id: string;
@@ -7,4 +8,5 @@ export class Recipe extends Serializable {
   description: string;
   type?: string;
   cookTime?: number;
+  image: Resource;
 }

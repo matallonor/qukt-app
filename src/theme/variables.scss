@@ -34,9 +34,9 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #41B6E6,
-  secondary:  #009CBD,
-  danger:     #f53d3d,
+  primary:    #ad4a47,
+  secondary:  #eac04e,
+  accent:     #009CBD,
   light:      #f4f4f4,
   dark:       #222
 );
@@ -47,12 +47,9 @@ $toolbar-md-title-text-align: center;
 $toolbar-ios-title-text-align: center;
 $toolbar-wp-title-text-align: center;
 
-
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-
-
 
 
 // App Material Design Variables
@@ -94,20 +91,18 @@ $toolbar-wp-title-text-align: center;
 //@import "noto-sans";
 
 @font-face {
-  font-family: 'SFCompactDisplay';
-  src:  url($font-path+'/SFCompactDisplay-Bold.otf');
+  font-family: 'Gaegu';
+  src:  url($font-path+'/Gaegu-Bold.ttf');
   font-weight: bold;
-//   font-style: normal;
 }
 
 @font-face {
-  font-family: 'SFCompactDisplay';
-  src:  url($font-path+'/SFCompactDisplay-Regular.otf');
+  font-family: 'Gaegu';
+  src:  url($font-path+'/Gaegu-Regular.ttf');
   font-weight: normal;
-//   font-style: normal;
 }
 
-$font-family-base: "SFCompactDisplay";
+$font-family-base: "Gaegu";
 * {
- font-family: "SFCompactDisplay", Helvetica, sans-serif;
+ font-family: "Gaegu", Helvetica, sans-serif;
 }
