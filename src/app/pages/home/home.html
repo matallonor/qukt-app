@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar class="home-navbar">
+    <ion-title>Qukt</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let recipe of recipes" (click)="openRecipe(recipe)">
+    <ion-card-header>
+      <h2 class="d-inline pull-left card-title">{{recipe.title}}</h2>
+    </ion-card-header>
+    
+    <img [src]="recipe.imagePath">
+    <ion-card-content>
+      <p>{{recipe.description}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
