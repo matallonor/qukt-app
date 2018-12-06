@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar class="home-navbar">
+    <ion-title><h1>{{ 'Receptes' | translate }}</h1></ion-title>
+    <ion-buttons start>
+      <button ion-button icon-only (click) ="filtersAction()">
+        <img class="nav-icon" src="assets/imgs/logo_white.svg">
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let recipe of recipes" (click)="openRecipe(recipe)">
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-3>
+            <div *ngIf="recipe.image" [ngStyle]="{'background-image': 'url(' + resourcesUrl + recipe.image.filename + ')'}"></div>
+            <div class="image" *ngIf="!recipe.image" [ngStyle]="{'background-image': 'url(assets/imgs/placeholder-image.jpg)'}"></div>
+          </ion-col>
+          <ion-col col-9 class="vertical-align-content">
+            <p class="home-recipes-title">{{ recipe.title | translate }}</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

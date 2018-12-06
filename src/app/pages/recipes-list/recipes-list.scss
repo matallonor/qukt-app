@@ -1,0 +1,31 @@
+.home-navbar .toolbar-background {
+  background-color:color($colors, primary);
+}
+
+.image {
+  margin: 0 .5rem;
+  height: 6rem;
+  width: 8rem;
+  background-size: contain;
+}
+
+.vertical-align-content > * {
+  display: flex !important;
+  align-content: center !important;
+  align-items: center !important;
+}
+
+.home-recipes-title {
+  font-size: 2.3rem !important;
+  padding: 0 2rem!important;
+  overflow: hidden!important;
+  text-overflow: ellipsis!important;
+  line-height: 2.3rem!important;
+  max-height: 6rem!important;
+  max-lines: 2 !important;
+  display: block!important;
+  display: -webkit-box!important;
+  height: 6rem!important;
+  -webkit-line-clamp: 2!important;
+  -webkit-box-orient: vertical!important;
+}
