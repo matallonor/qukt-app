@@ -3,41 +3,38 @@ import { Recipe } from 'app/shared/models/recipe';
 import { Recipes } from 'app/shared/mocks/recipes';
 import { RecipeProvider } from "app/shared/providers/recipe.provider";
 import {environment} from "app/shared/environments/environment";
-import {NavController} from "ionic-angular";
+import {NavController, NavParams} from "ionic-angular";
 import {RecipeDetail} from "app/pages/recipe-detail/recipe-detail";
+import {HomePage} from "app/pages/home/home";
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-recipes-list',
+  templateUrl: 'recipes-list.html'
 })
-export class HomePage {
+export class RecipesList {
 
   private recipes: Array<Recipe>;
   private resourcesUrl: string;
 
   constructor(
     private recipesProvider: RecipeProvider,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private navParams: NavParams
   ) {
     this.recipes = Recipes;
     this.resourcesUrl = environment.resourcesUrl;
   }
 
   ionViewDidLoad() {
-    this.getRecipes();
+    this.recipes = this.navParams.get('recipes');
   }
 
   openRecipe(recipe: Recipe) {
     this.navCtrl.push(RecipeDetail, { recipe: recipe });
   }
 
-  private getRecipes() {
-    this.recipesProvider.getRecipes().subscribe(
-      recipes => {
-        this.recipes = recipes;
-      }, error => {
-        console.log('ERROR RETRIEVING RECIPES: ', JSON.stringify(error));
-      }
-    )
+  goHome() {
+    this.navCtrl.push(HomePage);
   }
+
 }
