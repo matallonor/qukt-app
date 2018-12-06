@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { Recipe } from 'app/shared/models/recipe';
 import { environment } from "app/shared/environments/environment";
 import {TranslateService} from "@ngx-translate/core";
-import {NavParams} from "ionic-angular";
+import {NavController, NavParams} from "ionic-angular";
+import {HomePage} from "app/pages/home/home";
 
 @Component({
   selector: 'page-recipe-detail',
@@ -15,12 +16,18 @@ export class RecipeDetail {
 
   constructor(
     private translateService: TranslateService,
-    private navParams: NavParams
+    private navParams: NavParams,
+    private navCtrl: NavController
   ) {
     this.recipe = this.navParams.get('recipe');
-    this.description = this.recipe.description.split('\n');
-    this.description.forEach((desc) => { console.log(desc.charCodeAt(0)) } );
-    this.description.pop();
+    if (this.recipe.description) {
+      this.description = this.recipe.description.split('\n');
+      this.description.pop();
+    }
     this.resourcesUrl = environment.resourcesUrl;
+  }
+
+  private goHome() {
+    this.navCtrl.push(HomePage);
   }
 }

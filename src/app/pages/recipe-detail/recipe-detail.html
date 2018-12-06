@@ -1,8 +1,10 @@
 <ion-header>
   <ion-navbar class="home-navbar">
-    <ion-title><h1>{{ 'Recepta' | translate }}</h1></ion-title>
+    <ion-title text-center><h1>{{ 'Recepta' | translate }}</h1></ion-title>
     <ion-buttons start>
-      <button><img class="nav-icon" src="assets/imgs/logo.png"></button>
+      <button ion-button icon-only (click) ="goHome()">
+        <img class="nav-icon" src="assets/imgs/logo_white.svg">
+      </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -13,7 +15,7 @@
       <ion-col>
         <ion-row class="recipe-title"><h2>{{ recipe.title | translate }}</h2></ion-row>
         <ion-row>
-          <div *ngIf="recipe.image" [ngStyle]="{'background-image': 'url(' + resourcesUrl + recipe.image.filename + ')'}"></div>
+          <div class="recipe-detail-image" *ngIf="recipe.image" [ngStyle]="{'background-image': 'url(' + resourcesUrl + recipe.image.fileName + ')'}"></div>
           <div class="recipe-detail-image" *ngIf="!recipe.image" [ngStyle]="{'background-image': 'url(assets/imgs/placeholder-image.jpg)'}"></div>
         </ion-row>
       </ion-col>
