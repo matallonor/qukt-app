@@ -1,26 +1,25 @@
-<ion-header>
-  <ion-navbar class="home-navbar">
-    <ion-title><h1>{{ 'Receptes' | translate }}</h1></ion-title>
-    <ion-buttons start>
-      <button><img class="nav-icon" src="assets/imgs/logo.png"></button>
-    </ion-buttons>
-  </ion-navbar>
-</ion-header>
 
-<ion-content>
-  <ion-card *ngFor="let recipe of recipes" (click)="openRecipe(recipe)">
-    <ion-card-content>
-      <ion-grid>
-        <ion-row>
-          <ion-col col-3>
-            <div *ngIf="recipe.image" [ngStyle]="{'background-image': 'url(' + resourcesUrl + recipe.image.filename + ')'}"></div>
-            <div class="image" *ngIf="!recipe.image" [ngStyle]="{'background-image': 'url(assets/imgs/placeholder-image.jpg)'}"></div>
-          </ion-col>
-          <ion-col col-9 class="vertical-align-content">
-            <p class="home-recipes-title">{{ recipe.title | translate }}</p>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-card-content>
-  </ion-card>
-</ion-content>
+<ion-grid *ngIf="!loading" class="home-bg">
+  <ion-row>
+    <img class="home-logo" src="assets/imgs/olla_1.svg">
+  </ion-row>
+  <ion-row>
+    <img class="home-logo" src="assets/imgs/olla_2.svg">
+  </ion-row>
+  <ion-row>
+    <img class="home-logo" src="assets/imgs/olla_3.svg">
+  </ion-row>
+  <ion-row>
+    <ion-row>
+      <ion-row class="home-search-text">{{ 'Escriu els ingredients separats per comes i...a cuinar!' | translate }}</ion-row>
+    </ion-row>
+    <ion-row class="home-search-bar">
+      <ion-input [(ngModel)]="input"></ion-input>
+      <img class="home-search-button" src="assets/imgs/search_button.svg" (click)="search()">
+    </ion-row>
+  </ion-row>
+</ion-grid>
+
+<ion-backdrop *ngIf="loading">
+  <span class="home-loading-text">{{ 'La paciència és clau...' | translate }}</span>
+</ion-backdrop>
