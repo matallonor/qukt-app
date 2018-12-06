@@ -10,6 +10,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { RecipeProvider } from 'app/shared/providers/recipe.provider';
 import { RecipeDetail } from "app/pages/recipe-detail/recipe-detail";
+import { RecipesList } from "app/pages/recipes-list/recipes-list";
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
@@ -19,6 +20,7 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [
     MyApp,
     HomePage,
+    RecipesList,
     RecipeDetail
   ],
   imports: [
@@ -37,6 +39,7 @@ export function createTranslateLoader(http: HttpClient) {
   entryComponents: [
     MyApp,
     HomePage,
+    RecipesList,
     RecipeDetail
   ],
   providers: [
