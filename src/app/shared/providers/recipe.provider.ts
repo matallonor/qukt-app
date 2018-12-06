@@ -12,14 +12,12 @@ export class RecipeProvider {
   recipesUrl: string;
 
   constructor(public http: HttpClient) {
-    this.recipesUrl = `${environment.apiUrl}recipes/`;
+    this.recipesUrl = `${environment.apiUrl}recipes`;
   }
 
-  getRecipes(filterText: string = null): Observable<Recipe[]> {
-    let url = `${this.recipesUrl}`;
-    if (filterText) {
-      url += `?filterText=${filterText}`;
-    }
+  getRecipes(query: string): Observable<Recipe[]> {
+    const url = `${this.recipesUrl}/${query}`;
+    console.log(url);
     return this.http.get<Recipe[]>(url)
       .pipe(
         map(response => this.extractRecipes(response)),
