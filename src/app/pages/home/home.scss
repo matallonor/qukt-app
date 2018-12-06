@@ -1,3 +1,14 @@
+/*
+  Reset Styles
+ */
+ion-row {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+  Common Styles
+ */
 .home-bg {
   width: 100%;
   height: 100%;
@@ -8,17 +19,14 @@
   background-color: color($colors, primary);
 }
 
-.home-logo {
-  width: 10rem;
-  height: 10rem;
-  margin: 1rem auto;
-}
-
-.home-search-text {
-  margin-top: 3rem;
-  font-size: 2rem !important;
-  color: color($colors, secondary);
-  text-align: center;
+.home-app-name {
+  color: color($colors, light);
+  font-size: 3rem;
+  font-weight: lighter;
+  margin: 0 2rem;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
 }
 
 .home-search-bar {
@@ -61,4 +69,104 @@ ion-backdrop {
   z-index: 1000 !important;
   padding: 0 !important;
   margin: 0 !important;
+}
+
+.browser-content {
+  height: 100%;
+  display: none;
+  padding: 0 15%;
+  background-color: antiquewhite;
+}
+
+.home-search-text {
+  display: none;
+}
+
+/*
+  ##Device = Smartphones and Tablets
+  ##Screen = B/w 320px to 991px
+*/
+
+@media (min-width: 320px) and (max-width: 991px) {
+
+  .home-logo {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .home-app-name {
+    display: none;
+  }
+
+  .home-search-text {
+    display: inline;
+    margin-top: 3rem;
+    font-size: 2rem !important;
+    color: color($colors, secondary);
+    text-align: center;
+  }
+}
+
+
+
+/*
+  ##Device = Laptops, Desktops
+  ##Screen = From 1025px
+*/
+
+@media (min-width: 992px) {
+
+  .home-container {
+    padding: 0 15%;
+  }
+
+  .home-bg {
+    height: 12%;
+    padding: 0;
+  }
+
+  .home-logo {
+    width: 10rem;
+    height: 10rem;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .home-search-bar {
+    width: 100%;
+    height: 3rem;
+    margin: 3.5rem;
+    background-color: color($colors, light);
+    border-radius: .75rem;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .home-recipes-list {
+    background-color: color($colors, secondary);
+  }
+
+  .browser-content {
+    display: block;
+    height: 100%;
+  }
+
+  .browser-logo {
+    width: 30rem;
+    height: 30rem;
+    margin: 10rem 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .browser-info-text {
+    font-size: 3rem;
+    margin: 12rem 4rem;
+    display: flex;
+    ion-row {
+      margin: 2rem 0;
+    }
+  }
+
 }
