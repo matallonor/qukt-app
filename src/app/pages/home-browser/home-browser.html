@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-grid *ngIf="!loading" class="browser-bg">
+    <div class="browser-container">
+      <ion-row>
+        <ion-col text-center col-12 col-md-12 col-lg-1 col-xl-1>
+          <img class="browser-nav-logo" src="assets/imgs/olla_1.svg">
+        </ion-col>
+        <ion-col text-center col-12 col-md-12 col-lg-1 col-xl-1>
+          <img class="browser-nav-logo" src="assets/imgs/olla_2.svg">
+        </ion-col>
+        <ion-col text-center col-12 col-md-12 col-lg-1 col-xl-1>
+          <img class="browser-nav-logo" src="assets/imgs/olla_3.svg">
+        </ion-col>
+        <ion-col col-12 col-md-12 col-lg-2 col-xl-2>
+          <div class="browser-app-name">QUKT</div>
+        </ion-col>
+        <ion-col text-center col-12 col-md-12 col-lg-7 col-xl-7>
+          <ion-row class="browser-search-text">{{ 'Escriu els ingredients separats per comes i...a cuinar!' | translate }}</ion-row>
+          <ion-row class="browser-search-bar">
+            <ion-input [(ngModel)]="input"></ion-input>
+            <img class="browser-search-button" src="assets/imgs/search_button.svg" (click)="search()">
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>
+</ion-header>
+
+<ion-grid *ngIf="!recipes" class="browser-content-search">
+  <ion-row>
+    <ion-col text-center col-5>
+      <img class="browser-big-icon" src="assets/imgs/logo_red.svg">
+    </ion-col>
+    <ion-col col-7>
+      <ion-grid class="browser-info-text">
+        <ion-row>{{ 'No saps què cuinar? Tens la nevera mig buida?' | translate }}</ion-row>
+        <ion-row>{{ "Deixa't ajudar!" | translate }}</ion-row>
+        <ion-row>{{ "Escriu els ingredients que tens disponibles separats per comes i trobarem les receptes que millor s'ajustin" | translate }}</ion-row>
+      </ion-grid>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+<ion-content *ngIf="recipes">
+  <div class="browser-content-results">
+    <ion-row>
+      <ion-col>
+        <ion-icon name="arrow-dropleft" class="browser-slide-arrow" (click)="goToPreviousSlide()"></ion-icon>
+      </ion-col>
+      <ion-col text-center col-8>
+        <p class="browser-recipes-title">{{ recipe.title | translate }}</p>
+      </ion-col>
+      <ion-col text-right>
+        <ion-icon name="arrow-dropright" class="browser-slide-arrow" (click)="goToNextSlide()"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-card *ngIf="recipe">
+      <div class="browser-recipe-image" *ngIf="recipe.image" [ngStyle]="{'background-image': 'url(' + resourcesUrl + recipe.image.fileName + ')'}"></div>
+      <ion-row>
+        <ion-col col-12 col-md-12 col-lg-5 col-xl-5 class="browser-recipe-ingredients">
+          <ion-row class="browser-recipe-ingredients-title">{{ 'Ingredients: ' | translate }}</ion-row>
+          <ul>
+            <li text-left *ngFor="let ingredient of recipe.ingredients">{{ ingredient | translate }}</li>
+          </ul>
+        </ion-col>
+        <ion-col col-12 col-md-12 col-lg-7 col-xl-7>
+          <ion-row class="browser-recipe-description" *ngFor="let desc of recipe.description">
+            <ion-col col-1>
+              <ion-row class="browser-recipe-description-title">{{ recipe.description.indexOf(desc) + 1}}:</ion-row>
+            </ion-col>
+            <ion-col col-11>
+              <ion-row text-left class="browser-recipe-description-msg">{{ desc | translate }}</ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+</ion-content>
+
+<ion-footer text-center class="browser-footer">
+  <p class="browser-footer">QUKT - Marc Tallón Ortega</p>
+</ion-footer>
+
+<ion-backdrop *ngIf="loading">
+  <span class="browser-loading-text">{{ 'La paciència és clau...' | translate }}</span>
+</ion-backdrop>

@@ -5,8 +5,8 @@
 
 export const environment = {
   production: false,
-  // apiUrl: 'http://192.168.1.104:8080/',
-  // resourcesUrl: 'http://192.168.1.104:8080/public/resources/',
-  apiUrl: 'http://localhost:8080/',
-  resourcesUrl: 'http://localhost:8080/public/resources/'
+  apiUrl: 'http://192.168.1.105:8080/',
+  resourcesUrl: 'http://192.168.1.105:8080/public/resources/',
+  // apiUrl: 'http://localhost:8080/',
+  // resourcesUrl: 'http://localhost:8080/public/resources/'
 };

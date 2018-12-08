@@ -1,47 +1,32 @@
+<ion-content transparent no-bounce *ngIf="!loading" class="home-bg">
+  <ion-grid>
+    <div class="home-container">
+      <ion-row>
+        <ion-col text-center col-12>
+          <img class="home-logo" src="assets/imgs/olla_1.svg">
+        </ion-col>
+        <ion-col text-center col-12>
+          <img class="home-logo" src="assets/imgs/olla_2.svg">
+        </ion-col>
+        <ion-col text-center col-12>
+          <img class="home-logo" src="assets/imgs/olla_3.svg">
+        </ion-col>
+        <ion-col col-12>
+          <div class="home-app-name">QUKT</div>
+        </ion-col>
+        <ion-col text-center col-12>
+          <ion-row class="home-search-text">{{ 'Escriu els ingredients separats per comes i...a cuinar!' | translate }}</ion-row>
+          <ion-row class="home-search-bar">
+            <ion-input [(ngModel)]="input"></ion-input>
+            <img class="home-search-button" src="assets/imgs/search_button.svg" (click)="search()">
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>
 
-<ion-grid *ngIf="!loading" class="home-bg">
-  <div class="home-container">
-    <ion-row>
-      <ion-col text-center col-12 col-md-12 col-lg-1 col-xl-1>
-        <img class="home-logo" src="assets/imgs/olla_1.svg">
-      </ion-col>
-      <ion-col text-center col-12 col-md-12 col-lg-1 col-xl-1>
-        <img class="home-logo" src="assets/imgs/olla_2.svg">
-      </ion-col>
-      <ion-col text-center col-12 col-md-12 col-lg-1 col-xl-1>
-        <img class="home-logo" src="assets/imgs/olla_3.svg">
-      </ion-col>
-      <ion-col col-12 col-md-12 col-lg-2 col-xl-2>
-        <div class="home-app-name">QUKT</div>
-      </ion-col>
-      <ion-col text-center col-12 col-md-12 col-lg-7 col-xl-7>
-        <ion-row class="home-search-text">{{ 'Escriu els ingredients separats per comes i...a cuinar!' | translate }}</ion-row>
-        <ion-row class="home-search-bar">
-          <ion-input [(ngModel)]="input"></ion-input>
-          <img class="home-search-button" src="assets/imgs/search_button.svg" (click)="search()">
-        </ion-row>
-      </ion-col>
-    </ion-row>
-  </div>
-</ion-grid>
+  <ion-backdrop *ngIf="loading">
+    <span class="home-loading-text">{{ 'La paciència és clau...' | translate }}</span>
+  </ion-backdrop>
+</ion-content>
 
-<ion-grid *ngIf="!loading" class="browser-content">
-  <ion-row>
-    <ion-col text-center="" col-5>
-      <img class="browser-logo" src="assets/imgs/logo_red.svg">
-    </ion-col>
-    <ion-col col-7>
-      <ion-grid class="browser-info-text">
-        <ion-row>{{ 'No saps què cuinar? Tens la nevera mig buida?' | translate }}</ion-row>
-        <ion-row>{{ "Deixa't ajudar!" | translate }}</ion-row>
-        <ion-row>{{ "Escriu els ingredients que tens disponibles separats per comes i trobarem les receptes que millor s'ajustin" | translate }}</ion-row>
-      </ion-grid>
-    </ion-col>
-  </ion-row>
-  <page-recipes-list *ngIf="recipes" class="home-recipes-list"></page-recipes-list>
-  <!--<page-recipe-detail></page-recipe-detail>-->
-</ion-grid>
-
-<ion-backdrop *ngIf="loading">
-  <span class="home-loading-text">{{ 'La paciència és clau...' | translate }}</span>
-</ion-backdrop>

@@ -1,0 +1,273 @@
+/*
+  Reset Styles
+ */
+ion-row {
+  margin: 0;
+  padding: 0;
+}
+
+.toolbar {
+  margin: 0;
+  padding: 0;
+}
+
+ion-content {
+  position: relative !important;
+}
+
+ion-navbar {
+  display: none;
+}
+
+.back-button{
+  display: none;
+}
+
+.back-button.show-back-button {
+  display: none;
+}
+
+/*
+  Common Styles
+ */
+.browser-bg {
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  position: relative;
+  padding: 5rem 3rem;
+  background-size: cover;
+  background-color: color($colors, primary);
+}
+
+.browser-app-name {
+  color: color($colors, light);
+  font-size: 3rem;
+  font-weight: lighter;
+  margin: 0 2rem;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+}
+
+.browser-search-bar {
+  width: 100%;
+  height: 3rem;
+  margin-top: 1rem;
+  background-color: color($colors, light);
+  border-radius: .75rem;
+}
+
+.browser-search-button {
+  width: 4rem;
+  height: 3rem;
+  margin: .2rem;
+  padding: .5rem;
+  border-radius: .75rem;
+
+  display: block;
+  vertical-align: middle;
+}
+
+ion-backdrop {
+  height: auto;
+  background-color: color($colors, light);
+}
+
+.loading-wrapper {
+  margin: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+.custom-spinner-container {
+  width: 100% !important;
+  height: 100% !important;
+  background-color: #ffffff !important;
+  bottom: 0 !important;
+  position: relative !important;
+  background-size: cover !important;
+  z-index: 1000 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.browser-content-search {
+  height: 100%;
+  padding: 15% 15%;
+}
+
+.browser-search-text {
+  display: none;
+}
+
+/*
+  ##Device = Smartphones and Tablets
+  ##Screen = B/w 320px to 991px
+*/
+
+@media (min-width: 320px) and (max-width: 991px) {
+
+  .browser-logo {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .browser-app-name {
+    display: none;
+  }
+
+  .browser-search-text {
+    display: inline;
+    margin-top: 3rem;
+    font-size: 2rem !important;
+    color: color($colors, secondary);
+    text-align: center;
+  }
+
+  .browser-recipes-list-image {
+    margin: 0 .5rem;
+    height: 6rem;
+    width: 8rem;
+    background-size: contain;
+  }
+
+  .browser-recipe-ingredients {
+    margin: .5rem 0;
+    background-color: color($colors, primary);
+    ul {
+      list-style-type: square;
+    }
+  }
+
+  .browser-recipe-description {
+    background-color: color($colors, secondary);
+    margin-bottom: .5rem;
+  }
+
+  .browser-footer {
+    display: none;
+  }
+}
+
+
+
+/*
+  ##Device = Laptops, Desktops
+  ##Screen = From 1025px
+*/
+
+@media (min-width: 992px) {
+
+  .browser-container {
+    padding: 0 15%;
+  }
+
+  .browser-bg {
+    height: 12%;
+    padding: 0;
+  }
+
+  .browser-nav-logo {
+    width: 9rem;
+    height: 9rem;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .browser-search-bar {
+    width: 100%;
+    height: 3rem;
+    margin: 3.5rem 0;
+    background-color: color($colors, light);
+    border-radius: .75rem;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .browser-big-icon {
+    width: 30rem;
+    height: 30rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .browser-info-text {
+    font-size: 3rem;
+    display: flex;
+    ion-row {
+      margin: 2rem 0;
+    }
+  }
+
+  .browser-recipes-list-image {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+  }
+
+  .browser-recipe-image {
+    margin: 0;
+    height: 50rem;
+    background-size: cover;
+  }
+
+  .browser-slide-arrow {
+    margin: 0!important;
+    font-size: 8rem;
+    vertical-align: center;
+  }
+
+  .browser-recipes-title {
+    font-size: 3rem !important;
+    vertical-align: center;
+  }
+
+  .browser-recipe-ingredients {
+    margin: .5rem 0;
+    background-color: color($colors, primary);
+    ul {
+      list-style-type: square;
+    }
+  }
+
+  .browser-recipe-ingredients-title {
+    color: color($colors, light);
+    font-size: 2.5rem;
+    margin: 2rem 2rem 0 2rem;
+  }
+
+  .browser-recipe-description {
+    background-color: color($colors, secondary);
+    margin-bottom: .5rem;
+  }
+
+  .browser-recipe-description-title {
+    color: color($colors, primary);
+    font-size: 2.5rem;
+    margin: 1rem 2rem;
+  }
+
+  .browser-recipe-description-msg {
+    font-size: 2rem;
+    margin: 1rem 2rem;
+  }
+
+  .browser-footer {
+    height: 5rem;
+    background-color: color($colors, primary);
+    font-size: 2rem;
+    color: color($colors, light);
+  }
+
+  .scroll-content {
+    padding-top: 10%;
+  }
+
+  .browser-content-results {
+    padding: 0 15% 5% 15% !important;
+  }
+
+}

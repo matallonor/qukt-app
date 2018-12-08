@@ -11,6 +11,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { RecipeProvider } from 'app/shared/providers/recipe.provider';
 import { RecipeDetail } from "app/pages/recipe-detail/recipe-detail";
 import { RecipesList } from "app/pages/recipes-list/recipes-list";
+import {HomeBrowserPage} from "app/pages/home-browser/home-browser";
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
@@ -19,6 +20,7 @@ export function createTranslateLoader(http: HttpClient) {
 @NgModule({
   declarations: [
     MyApp,
+    HomeBrowserPage,
     HomePage,
     RecipesList,
     RecipeDetail
@@ -38,6 +40,7 @@ export function createTranslateLoader(http: HttpClient) {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    HomeBrowserPage,
     HomePage,
     RecipesList,
     RecipeDetail

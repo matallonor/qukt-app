@@ -1,24 +1,45 @@
-import { Component } from '@angular/core';
+import {Component, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import { RecipeProvider } from "app/shared/providers/recipe.provider";
-import { LoadingController, NavController } from "ionic-angular";
-import { RecipesList } from "app/pages/recipes-list/recipes-list";
+import {Content, LoadingController, NavController, Platform, Slides} from "ionic-angular";
 import { TranslateService } from "@ngx-translate/core";
+import { Recipe } from "app/shared/models/recipe";
+import { environment } from "app/shared/environments/environment";
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-home-browser',
+  templateUrl: 'home-browser.html'
 })
-export class HomePage {
+export class HomeBrowserPage {
 
   private input: string = '';
   private loading: boolean;
+  private recipes: Array<Recipe>;
+  private recipe: Recipe;
+  private resourcesUrl: string;
+
+  goToNextSlide() {
+    const currentIndex = this.recipes.indexOf(this.recipe);
+    if (currentIndex + 1 < this.recipes.length) {
+      this.recipe = this.recipes[currentIndex + 1];
+    }
+  }
+
+  goToPreviousSlide() {
+    const currentIndex = this.recipes.indexOf(this.recipe);
+    if (currentIndex - 1 >= 0) {
+      this.recipe = this.recipes[currentIndex - 1];
+    }
+  }
 
   constructor(
     private recipesProvider: RecipeProvider,
     private navCtrl: NavController,
     private translateService: TranslateService,
     private loader: LoadingController
-  ) { }
+  ) {
+    this.resourcesUrl = environment.resourcesUrl;
+  }
+
 
   private async search() {
     this.loading = true;
@@ -26,11 +47,13 @@ export class HomePage {
     setTimeout(() => {
       this.recipesProvider.getRecipes(this.input).subscribe(
         recipes => {
+          this.recipes = recipes;
+          this.recipe = this.recipes[0];
           loader.dismissAll();
-          this.navCtrl.push(RecipesList, { recipes });
+          this.loading = false;
         }, error => {
           console.log('ERROR RETRIEVING RECIPES: ', JSON.stringify(error));
-          this.navCtrl.push(HomePage);
+          this.navCtrl.push(HomeBrowserPage);
         }
       );
     }, 1000);

@@ -32,7 +32,6 @@
   background-color: color($colors, primary);
   ul {
     list-style-type: square;
-    list-style-image: url('assets/imgs/bullet.jpg');
   }
 }
 
@@ -42,7 +41,7 @@
 }
 
 .description-title {
-  color: color($colors, light);
+  color: color($colors, primary);
   font-size: 2.5rem;
   margin: 1rem 2rem;
 }

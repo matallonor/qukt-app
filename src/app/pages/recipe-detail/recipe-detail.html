@@ -28,11 +28,9 @@
         </ul>
       </ion-col>
     </ion-row>
-    <ion-row class="recipe-description" *ngFor="let desc of description">
-      <ion-col>
-        <ion-row class="description-title">{{ 'Pas ' | translate }} {{ description.indexOf(desc) + 1}}:</ion-row>
-        <ion-row class="description-msg">>{{ desc | translate }}</ion-row>
-      </ion-col>
+    <ion-row class="recipe-description" *ngFor="let desc of recipe.description">
+      <ion-row class="description-title">{{ 'Pas ' | translate }} {{ recipe.description.indexOf(desc) + 1}}:</ion-row>
+      <ion-row class="description-msg">{{ desc | translate }}</ion-row>
     </ion-row>
   </ion-grid>
 </ion-content>

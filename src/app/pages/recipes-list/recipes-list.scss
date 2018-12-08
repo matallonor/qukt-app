@@ -4,9 +4,9 @@
 
 .image {
   margin: 0 .5rem;
-  height: 6rem;
+  height: 8rem;
   width: 8rem;
-  background-size: contain;
+  background-size: cover;
 }
 
 .vertical-align-content > * {
@@ -16,16 +16,16 @@
 }
 
 .recipes-list-title {
-  font-size: 2.3rem !important;
+  font-size: 2rem !important;
   padding: 0 2rem!important;
   overflow: hidden!important;
   text-overflow: ellipsis!important;
   line-height: 2.3rem!important;
-  max-height: 6rem!important;
+  max-height: 7rem!important;
   max-lines: 2 !important;
   display: block!important;
   display: -webkit-box!important;
-  height: 6rem!important;
+  height: 7rem!important;
   -webkit-line-clamp: 2!important;
   -webkit-box-orient: vertical!important;
 }

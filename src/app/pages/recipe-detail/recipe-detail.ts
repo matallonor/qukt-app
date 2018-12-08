@@ -20,10 +20,6 @@ export class RecipeDetail {
     private navCtrl: NavController
   ) {
     this.recipe = this.navParams.get('recipe');
-    if (this.recipe.description) {
-      this.description = this.recipe.description.split('\n');
-      this.description.pop();
-    }
     this.resourcesUrl = environment.resourcesUrl;
   }
 
